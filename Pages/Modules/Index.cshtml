@@ -1,0 +1,155 @@
+@page
+@model Software_Projekt.Pages.Modules.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].ModulverantwortlichenId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].ModulverantwortlicheR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].WorkloadH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Semesterwochenstunden)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Credits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Turnus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].CuriculareZuordnung)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Lernziele)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Schlüsselqualifikationen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].InhaltilicheBeschreibung)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Unterrichtsform)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Prüfungsart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Prüfungsform)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Verbindlichkeit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].Literaturangaben)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modul[0].ModulhandbuchId)
+            </th>
+        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Modul)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModulverantwortlichenId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModulverantwortlicheR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Semester)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkloadH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Semesterwochenstunden)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Credits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Turnus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CuriculareZuordnung)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lernziele)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Schlüsselqualifikationen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InhaltilicheBeschreibung)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unterrichtsform)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prüfungsart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prüfungsform)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Verbindlichkeit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Literaturangaben)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModulhandbuchId)
+                </td>
+              
+                <td>
+                    @if ((await AuthorizationService.AuthorizeAsync(
+                    User, item,
+                    ContactOperations.Update)).Succeeded)
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.ModulId">Edit</a>
+                        <text> | </text>
+                    }
+
+                    <a asp-page="./Details" asp-route-id="@item.ModulId">Details</a>
+
+                    @if ((await AuthorizationService.AuthorizeAsync(
+                    User, item,
+                    ContactOperations.Delete)).Succeeded)
+                    {
+                        <text> | </text>
+                        <a asp-page="./Delete" asp-route-id="@item.ModulId">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

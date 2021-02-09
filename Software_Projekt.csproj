@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-Software_Projekt-27B40B4B-A6B6-4C88-ADEF-0D92CB35FF06</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210110121937_initial.cs" />
+    <Compile Remove="Data\Migrations\20210110121937_initial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210110123914_userID_Status.cs" />
+    <Compile Remove="Data\Migrations\20210110123914_userID_Status.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210110142937_secondinitial.cs" />
+    <Compile Remove="Data\Migrations\20210110142937_secondinitial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210110184046_second.cs" />
+    <Compile Remove="Data\Migrations\20210110184046_second.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210110184900_secondinitial.cs" />
+    <Compile Remove="Data\Migrations\20210110184900_secondinitial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210110185053_userID_Status.cs" />
+    <Compile Remove="Data\Migrations\20210110185053_userID_Status.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210110191546_secondinitial.cs" />
+    <Compile Remove="Data\Migrations\20210110191546_secondinitial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210110192017_userID_Status.cs" />
+    <Compile Remove="Data\Migrations\20210110192017_userID_Status.Designer.cs" />
+    <Compile Remove="Migrations\20210128081313_CreateIdentitySchema.cs" />
+    <Compile Remove="Migrations\20210128081313_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Migrations\20210128082451_userID_Status.cs" />
+    <Compile Remove="Migrations\20210128082451_userID_Status.Designer.cs" />
+    <Compile Remove="Migrations\20210128084303_CreateIdentitySchema.cs" />
+    <Compile Remove="Migrations\20210128084303_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Migrations\20210128084336_userID_Status.cs" />
+    <Compile Remove="Migrations\20210128084336_userID_Status.Designer.cs" />
+    <Compile Remove="Migrations\20210129084940_CreateIdentitySchema.cs" />
+    <Compile Remove="Migrations\20210129084940_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Migrations\20210129085104_userID_Status.cs" />
+    <Compile Remove="Migrations\20210129085104_userID_Status.Designer.cs" />
+    <Compile Remove="Migrations\20210201144758_CreateIdentitySchema.cs" />
+    <Compile Remove="Migrations\20210201144758_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Migrations\20210201144836_userID_Status.cs" />
+    <Compile Remove="Migrations\20210201144836_userID_Status.Designer.cs" />
+    <Compile Remove="Migrations\20210201144910_Än.cs" />
+    <Compile Remove="Migrations\20210201144910_Än.Designer.cs" />
+    <Compile Remove="Migrations\20210201193031_CreateIdentitySchema.cs" />
+    <Compile Remove="Migrations\20210201193031_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Migrations\20210201193120_userID_Status.cs" />
+    <Compile Remove="Migrations\20210201193120_userID_Status.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
+</Project>

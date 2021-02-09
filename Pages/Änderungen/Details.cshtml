@@ -1,0 +1,108 @@
+﻿@page
+@model Software_Projekt.Pages.Änderungen.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Änderung</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Änderung.OwnerID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Änderung.OwnerID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Änderung.ProgrammverantwortlichenId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Änderung.ProgrammverantwortlichenId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Änderung.ModulverantwortlichenId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Änderung.ModulverantwortlichenId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Änderung.ModulId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Änderung.ModulId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Änderung.Element)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Änderung.Element)
+        </dd>
+      
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Änderung.NeuerEintrag)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Änderung.NeuerEintrag)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Änderung.Datum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Änderung.Datum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Änderung.ModulhandbuchId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Änderung.ModulhandbuchId)
+        </dd>
+     
+        <dt>
+            @Html.DisplayNameFor(model => model.Änderung.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Änderung.Status)
+        </dd>
+    </dl>
+</div>
+
+@if (Model.Änderung.Status != ÄndernStatus.Approved)
+{
+    @if ((await AuthorizationService.AuthorizeAsync(
+ User, Model.Änderung, ContactOperations.Approve)).Succeeded)
+    {
+        <form style="display:inline;" method="post">
+            <input type="hidden" name="id" value="@Model.Änderung.ÄnderungId" />
+            <input type="hidden" name="status" value="@ÄndernStatus.Approved" />
+            <button type="submit" class="btn btn-xs btn-success">Approve</button>
+        </form>
+    }
+}
+
+@if (Model.Änderung.Status != ÄndernStatus.Rejected)
+{
+    @if ((await AuthorizationService.AuthorizeAsync(
+ User, Model.Änderung, ContactOperations.Reject)).Succeeded)
+    {
+        <form style="display:inline;" method="post">
+            <input type="hidden" name="id" value="@Model.Änderung.ÄnderungId" />
+            <input type="hidden" name="status" value="@ÄndernStatus.Rejected" />
+            <button type="submit" class="btn btn-xs btn-danger">Reject</button>
+        </form>
+    }
+}
+
+<div>
+    @if ((await AuthorizationService.AuthorizeAsync(
+     User, Model.Änderung,
+     ContactOperations.Update)).Succeeded)
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.Änderung.ÄnderungId">Edit</a>
+        <text> | </text>
+    }
+    <a asp-page="./Index">Back to List</a>
+</div>

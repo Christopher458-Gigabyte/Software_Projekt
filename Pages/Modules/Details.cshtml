@@ -1,0 +1,138 @@
+@page
+@model Software_Projekt.Pages.Modules.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Modul</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.ModulverantwortlichenId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.ModulverantwortlichenId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.ModulverantwortlicheR)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.ModulverantwortlicheR)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Semester)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Semester)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.WorkloadH)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.WorkloadH)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Semesterwochenstunden)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Semesterwochenstunden)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Credits)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Credits)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Turnus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Turnus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.CuriculareZuordnung)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.CuriculareZuordnung)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Lernziele)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Lernziele)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Schlüsselqualifikationen)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Schlüsselqualifikationen)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.InhaltilicheBeschreibung)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.InhaltilicheBeschreibung)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Unterrichtsform)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Unterrichtsform)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Prüfungsart)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Prüfungsart)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Prüfungsform)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Prüfungsform)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Verbindlichkeit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Verbindlichkeit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.Literaturangaben)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.Literaturangaben)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modul.ModulhandbuchId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modul.ModulhandbuchId)
+        </dd>
+      
+    </dl>
+</div>
+
+
+
+<div>
+    @if ((await AuthorizationService.AuthorizeAsync(
+        User, Model.Modul,
+        ContactOperations.Update)).Succeeded)
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.Modul.ModulId">Edit</a>
+        <text> | </text>
+    }
+    <a asp-page="./Index">Back to List</a>
+</div>
+

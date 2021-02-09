@@ -1,0 +1,71 @@
+﻿@page
+@model Software_Projekt.Pages.Änderungen.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Änderung</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Änderung.ÄnderungId" />
+            <div class="form-group">
+                <label asp-for="Änderung.OwnerID" class="control-label"></label>
+                <input asp-for="Änderung.OwnerID" class="form-control" />
+                <span asp-validation-for="Änderung.OwnerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Änderung.ProgrammverantwortlichenId" class="control-label"></label>
+                <input asp-for="Änderung.ProgrammverantwortlichenId" class="form-control" />
+                <span asp-validation-for="Änderung.ProgrammverantwortlichenId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Änderung.ModulverantwortlichenId" class="control-label"></label>
+                <input asp-for="Änderung.ModulverantwortlichenId" class="form-control" />
+                <span asp-validation-for="Änderung.ModulverantwortlichenId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Änderung.ModulId" class="control-label"></label>
+                <input asp-for="Änderung.ModulId" class="form-control" />
+                <span asp-validation-for="Änderung.ModulId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Änderung.Element" class="control-label"></label>
+                <input asp-for="Änderung.Element" class="form-control" />
+                <span asp-validation-for="Änderung.Element" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Änderung.NeuerEintrag" class="control-label"></label>
+                <input asp-for="Änderung.NeuerEintrag" class="form-control" />
+                <span asp-validation-for="Änderung.NeuerEintrag" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Änderung.Datum" class="control-label"></label>
+                <input asp-for="Änderung.Datum" class="form-control" />
+                <span asp-validation-for="Änderung.Datum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Änderung.ModulhandbuchId" class="control-label"></label>
+                <input asp-for="Änderung.ModulhandbuchId" class="form-control" />
+                <span asp-validation-for="Änderung.ModulhandbuchId" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

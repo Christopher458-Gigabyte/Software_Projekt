@@ -1,0 +1,68 @@
+﻿@page
+@model Software_Projekt.Pages.Modulhandbuche.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Modulhandbuch[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modulhandbuch[0].FachbereichId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modulhandbuch[0].StudiengangId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modulhandbuch[0].Prüfungsordnung)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Modulhandbuch) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FachbereichId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudiengangId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prüfungsordnung)
+            </td>
+            <td>
+                @if ((await AuthorizationService.AuthorizeAsync(
+             User, item,
+             ContactOperations.Update)).Succeeded)
+                {
+                    <a asp-page="./Edit" asp-route-id="@item.ModulhandbuchId">Edit</a>
+                    <text> | </text>
+                }
+
+                <a asp-page="./Details" asp-route-id="@item.ModulhandbuchId">Details</a>
+
+                @if ((await AuthorizationService.AuthorizeAsync(
+             User, item,
+             ContactOperations.Delete)).Succeeded)
+                {
+                    <text> | </text>
+                    <a asp-page="./Delete" asp-route-id="@item.ModulhandbuchId">Delete</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

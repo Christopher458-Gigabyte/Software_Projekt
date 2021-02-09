@@ -1,0 +1,44 @@
+﻿@page
+@model Software_Projekt.Pages.Programmverantwortlicher.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ProgrammverantwortlicheR</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProgrammverantwortlicheR.Name" class="control-label"></label>
+                <input asp-for="ProgrammverantwortlicheR.Name" class="form-control" />
+                <span asp-validation-for="ProgrammverantwortlicheR.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProgrammverantwortlicheR.StudiengangId" class="control-label"></label>
+                <input asp-for="ProgrammverantwortlicheR.StudiengangId" class="form-control" />
+                <span asp-validation-for="ProgrammverantwortlicheR.StudiengangId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProgrammverantwortlicheR.EMail" class="control-label"></label>
+                <input asp-for="ProgrammverantwortlicheR.EMail" class="form-control" />
+                <span asp-validation-for="ProgrammverantwortlicheR.EMail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

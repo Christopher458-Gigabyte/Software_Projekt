@@ -1,0 +1,49 @@
+﻿@page
+@model Software_Projekt.Pages.Modulhandbuche.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Modulhandbuch</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Modulhandbuch.Name" class="control-label"></label>
+                <input asp-for="Modulhandbuch.Name" class="form-control" />
+                <span asp-validation-for="Modulhandbuch.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modulhandbuch.FachbereichId" class="control-label"></label>
+                <input asp-for="Modulhandbuch.FachbereichId" class="form-control" />
+                <span asp-validation-for="Modulhandbuch.FachbereichId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modulhandbuch.StudiengangId" class="control-label"></label>
+                <input asp-for="Modulhandbuch.StudiengangId" class="form-control" />
+                <span asp-validation-for="Modulhandbuch.StudiengangId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modulhandbuch.Prüfungsordnung" class="control-label"></label>
+                <input asp-for="Modulhandbuch.Prüfungsordnung" class="form-control" />
+                <span asp-validation-for="Modulhandbuch.Prüfungsordnung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
